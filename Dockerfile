@@ -16,4 +16,7 @@ COPY . .
 # Expose port 3000
 EXPOSE 3000
 
+# Add healthcheck to ensure that the application is running properly
+HEALTHCHECK CMD curl --fail http://localhost:3000 || exit 1
+
 CMD [ "node", "index.js" ]
